@@ -63,164 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var defaultOpts = {};
-
-var Chart = function () {
-    function Chart(elem, data) {
-        var _this = this;
-
-        var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defaultOpts;
-
-        _classCallCheck(this, Chart);
-
-        this.canvas = document.createElement('canvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.data = data;
-
-        var parentDimensions = elem.getBoundingClientRect();
-        elem.appendChild(this.canvas);
-
-        this.canvas.height = parentDimensions.height || 1000;
-        this.canvas.width = parentDimensions.width;
-        this._renderContainer(this.canvas.width, this.canvas.height);
-
-        window.onresize = function (evt) {
-            var parentDimensions = elem.getBoundingClientRect();
-            _this.canvas.height = parentDimensions.height || 1000;
-            _this.canvas.width = parentDimensions.width;
-            _this._renderContainer(_this.canvas.width, _this.canvas.height);
-        };
-    }
-
-    _createClass(Chart, [{
-        key: '_renderContainer',
-        value: function _renderContainer(width, height) {
-            var priceOffset = 50;
-            var timeOffset = 25;
-            var width = width - priceOffset;
-            var height = height - timeOffset;
-            this.ctx.fillStyle = 'black';
-            this.ctx.fillRect(0, 0, width, height);
-            this._renderGrid(width, height);
-        }
-    }, {
-        key: '_renderGrid',
-        value: function _renderGrid(width, height) {
-            var ctx = this.ctx;
-
-            var verticalSpacing = width / 5;
-            var lateralSpacing = height / 10;
-
-            for (var i = 0; i <= width; i += verticalSpacing) {
-                ctx.beginPath();
-                ctx.moveTo(i, 0);
-                ctx.lineTo(i, height);
-                ctx.closePath();
-                ctx.strokeStyle = 'gray';
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-
-            for (var _i = 0; _i <= height; _i += lateralSpacing) {
-                ctx.beginPath();
-                ctx.moveTo(0, _i);
-                ctx.lineTo(width, _i);
-                ctx.closePath();
-                ctx.strokeStyle = 'gray';
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-        }
-    }, {
-        key: 'plotData',
-        value: function plotData() {}
-    }, {
-        key: '_normalizeData',
-        value: function _normalizeData(data) {
-            return _.map(data, function (d) {});
-        }
-    }]);
-
-    return Chart;
-}();
-
-exports.default = Chart;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _chart = __webpack_require__(0);
-
-var _chart2 = _interopRequireDefault(_chart);
-
-var _fixtures = __webpack_require__(2);
-
-var _fixtures2 = _interopRequireDefault(_fixtures);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var anchor = document.getElementById('container');
-
-var chart = new _chart2.default(anchor, (0, _fixtures2.default)());
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _lodash = __webpack_require__(4);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var genRandomData = function genRandomData() {
-    return _lodash2.default.map(_lodash2.default.range(0, 500), function (n) {
-        return _lodash2.default.random(45, 135);
-    });
-};
-
-exports.default = genRandomData;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
-module.exports = __webpack_amd_options__;
-
-/* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9658,7 +9505,7 @@ LazyWrapper.prototype.clone=lazyClone;LazyWrapper.prototype.reverse=lazyReverse;
 lodash.prototype.at=wrapperAt;lodash.prototype.chain=wrapperChain;lodash.prototype.commit=wrapperCommit;lodash.prototype.next=wrapperNext;lodash.prototype.plant=wrapperPlant;lodash.prototype.reverse=wrapperReverse;lodash.prototype.toJSON=lodash.prototype.valueOf=lodash.prototype.value=wrapperValue;// Add lazy aliases.
 lodash.prototype.first=lodash.prototype.head;if(symIterator){lodash.prototype[symIterator]=wrapperToIterator;}return lodash;};/*--------------------------------------------------------------------------*/// Export lodash.
 var _=runInContext();// Some AMD build optimizers, like r.js, check for condition patterns like:
-if("function"=='function'&&_typeof(__webpack_require__(3))=='object'&&__webpack_require__(3)){// Expose Lodash on the global object to prevent errors when Lodash is
+if("function"=='function'&&_typeof(__webpack_require__(1))=='object'&&__webpack_require__(1)){// Expose Lodash on the global object to prevent errors when Lodash is
 // loaded by a script tag in the presence of an AMD loader.
 // See http://requirejs.org/docs/errors.html#mismatch for more details.
 // Use `_.noConflict` to remove Lodash from the global object.
@@ -9670,10 +9517,201 @@ else if(freeModule){// Export for Node.js.
 (freeModule.exports=_)._=_;// Export for CommonJS support.
 freeExports._=_;}else{// Export to the global object.
 root._=_;}}).call(undefined);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(6)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(5)(module)))
 
 /***/ }),
-/* 5 */
+/* 1 */
+/***/ (function(module, exports) {
+
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
+module.exports = __webpack_amd_options__;
+
+/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _lodash = __webpack_require__(0);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var defaultOpts = {};
+
+var Chart = function () {
+    function Chart(elem, data) {
+        var _this = this;
+
+        var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defaultOpts;
+
+        _classCallCheck(this, Chart);
+
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.data = data;
+        this.min = _lodash2.default.min(data);
+        this.max = _lodash2.default.max(data);
+
+        var parentDimensions = elem.getBoundingClientRect();
+        elem.appendChild(this.canvas);
+
+        this.canvas.height = parentDimensions.height || 1000;
+        this.canvas.width = parentDimensions.width;
+        this._renderContainer(this.canvas.width, this.canvas.height);
+        window.onresize = function (evt) {
+            var parentDimensions = elem.getBoundingClientRect();
+            _this.canvas.height = parentDimensions.height || 1000;
+            _this.canvas.width = parentDimensions.width;
+            _this._renderContainer(_this.canvas.width, _this.canvas.height);
+        };
+    }
+
+    _createClass(Chart, [{
+        key: '_renderContainer',
+        value: function _renderContainer(width, height) {
+            var priceOffset = 50;
+            var timeOffset = 25;
+
+            var width = width - priceOffset;
+            var height = height - timeOffset;
+
+            this.ctx.fillStyle = 'black';
+            this.ctx.fillRect(0, 0, width, height);
+            this._renderGrid(width, height);
+            this.plotData(width, height);
+            this._renderTape(width, height);
+        }
+    }, {
+        key: '_renderGrid',
+        value: function _renderGrid(width, height) {
+            var ctx = this.ctx;
+
+            var verticalSpacing = width / 5;
+            var lateralSpacing = height / 10;
+
+            for (var i = 0; i <= width; i += verticalSpacing) {
+                ctx.beginPath();
+                ctx.moveTo(i, 0);
+                ctx.lineTo(i, height);
+                ctx.closePath();
+                ctx.strokeStyle = 'gray';
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+
+            for (var _i = 0; _i <= height; _i += lateralSpacing) {
+                ctx.beginPath();
+                ctx.moveTo(0, _i);
+                ctx.lineTo(width, _i);
+                ctx.closePath();
+                ctx.strokeStyle = 'gray';
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }, {
+        key: 'plotData',
+        value: function plotData(width, height) {
+            var ctx = this.ctx;
+
+            var data = this._normalizeData(this.data);
+            var length = data.length;
+            var dataGap = width / length;
+            var j = 0;
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            for (var i = 0; i < length; i++) {
+                var xCoordinate = height * data[i].percentage;
+                ctx.lineTo(j, xCoordinate);
+                j += dataGap;
+            }
+            ctx.strokeStyle = 'green';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    }, {
+        key: '_normalizeData',
+        value: function _normalizeData(data) {
+            var min = this.min,
+                max = this.max;
+
+            var range = max - min;
+
+            return _lodash2.default.map(data, function (d) {
+                return {
+                    price: d,
+                    percentage: 1 - (d - min) / range
+                };
+            });
+        }
+    }, {
+        key: '_renderGutter',
+        value: function _renderGutter() {}
+    }, {
+        key: '_renderTape',
+        value: function _renderTape(width, height) {
+            var ctx = this.ctx,
+                min = this.min,
+                max = this.max;
+
+            var lateralSpacing = height / 10;
+            ctx.fillStyle = 'black';
+            ctx.fillRect(width, 0, 50, height);
+            ctx.font = '13px menlo';
+            ctx.fillStyle = 'gray';
+            var n = max;
+            for (var i = 0; i <= height; i += lateralSpacing) {
+                n -= 10;
+                ctx.fillText(n, width + 10, i);
+            }
+        }
+    }]);
+
+    return Chart;
+}();
+
+exports.default = Chart;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _lodash = __webpack_require__(0);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var genRandomData = function genRandomData() {
+    return _lodash2.default.map(_lodash2.default.range(0, 100), function (n) {
+        return _lodash2.default.random(45, 135);
+    });
+};
+
+exports.default = genRandomData;
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9703,7 +9741,7 @@ try {
 module.exports = g;
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9731,6 +9769,27 @@ module.exports = function (module) {
 	}
 	return module;
 };
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _chart = __webpack_require__(2);
+
+var _chart2 = _interopRequireDefault(_chart);
+
+var _fixtures = __webpack_require__(3);
+
+var _fixtures2 = _interopRequireDefault(_fixtures);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var anchor = document.getElementById('container');
+
+var chart = new _chart2.default(anchor, (0, _fixtures2.default)());
 
 /***/ })
 /******/ ]);
