@@ -9562,8 +9562,8 @@ var Chart = function () {
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.data = data;
-        this.min = _lodash2.default.min(data);
-        this.max = _lodash2.default.max(data);
+        this.min = Math.round(_lodash2.default.min(data) / 1.05);
+        this.max = Math.round(_lodash2.default.max(data) * 1.05);
 
         var parentDimensions = elem.getBoundingClientRect();
         elem.appendChild(this.canvas);
@@ -9593,6 +9593,7 @@ var Chart = function () {
             this._renderGrid(width, height);
             this.plotData(width, height);
             this._renderTape(width, height);
+            this._renderGutter(width, height);
         }
     }, {
         key: '_renderGrid',
@@ -9659,7 +9660,13 @@ var Chart = function () {
         }
     }, {
         key: '_renderGutter',
-        value: function _renderGutter() {}
+        value: function _renderGutter(width, height) {
+            var ctx = this.ctx,
+                canvas = this.canvas;
+
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, height, canvas.width, 25);
+        }
     }, {
         key: '_renderTape',
         value: function _renderTape(width, height) {
@@ -9667,15 +9674,18 @@ var Chart = function () {
                 min = this.min,
                 max = this.max;
 
-            var lateralSpacing = height / 10;
+            console.log('min', min, 'max', max);
+            var range = max - min;
+            var priceGap = Math.round(range / 10);
+            var pixelGap = height / 10;
             ctx.fillStyle = 'black';
             ctx.fillRect(width, 0, 50, height);
             ctx.font = '13px menlo';
             ctx.fillStyle = 'gray';
             var n = max;
-            for (var i = 0; i <= height; i += lateralSpacing) {
-                n -= 10;
-                ctx.fillText(n, width + 10, i);
+            for (var i = 0; i < height; i += pixelGap) {
+                n -= priceGap;
+                ctx.fillText('$' + n, width + 10, i);
             }
         }
     }]);
@@ -9704,7 +9714,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var genRandomData = function genRandomData() {
     return _lodash2.default.map(_lodash2.default.range(0, 100), function (n) {
-        return _lodash2.default.random(45, 135);
+        var l = _lodash2.default.random(n, n + 5);
+        var h = _lodash2.default.random(n, n + 25);
+        return _lodash2.default.random(l, h);
     });
 };
 
