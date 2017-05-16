@@ -1,8 +1,9 @@
 import Chart from './chart';
-import getRandomData from '../test/fixtures';
+import {getRealData} from '../test/fixtures';
 
 
 
 var anchor = document.getElementById('container');
-
-const chart = new Chart(anchor, getRandomData());
+getRealData('BTC_ETH').then(data => {
+    const chart = new Chart(anchor, data);
+});

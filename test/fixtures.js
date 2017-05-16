@@ -1,7 +1,10 @@
-import _ from 'lodash';
-import axios from 'axios';
+require('es6-promise').polyfill();
 
-const genRandomData = () => {
+import _ from 'lodash';
+import fetch from 'isomorphic-fetch';
+
+
+export const genRandomData = () => {
     return _.map(_.range(0,100), n => {
         const l = _.random(n, n + 5);
         const h = _.random(n, n + 25);
@@ -9,11 +12,17 @@ const genRandomData = () => {
     });
 };
 
-const getRealData = (ticker) => {
-    return axios.get('https://poloniex.com/public?command=returnChartData&currencyPair=BTC_XMR&start=1405699200&end=9999999999&period=14400')
+export const getRealData = (ticker) => {
+    return fetch(`https://poloniex.com/public?command=returnChartData&currencyPair=${ticker}&start=1405699200&end=9999999999&period=86400`)
     .then(data => {
-        console.log('data:', data);
-    });
+        return data.json();
+    })
+    .then(prepData);
 }
 
-export default genRandomData;
+function prepData(data) {
+    console.log(data);
+
+    return _.map(data, d => d.close);
+}
+
