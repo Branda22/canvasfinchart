@@ -4,6 +4,6 @@ import {getRealData} from '../test/fixtures';
 
 
 var anchor = document.getElementById('container');
-getRealData('BTC_ETH').then(data => {
-    const chart = new Chart(anchor, data);
+getRealData('USDT_BTC').then(data => {
+    const chart = new Chart(anchor, data.slice());
 });

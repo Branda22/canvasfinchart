@@ -16,13 +16,6 @@ export const getRealData = (ticker) => {
     return fetch(`https://poloniex.com/public?command=returnChartData&currencyPair=${ticker}&start=1405699200&end=9999999999&period=86400`)
     .then(data => {
         return data.json();
-    })
-    .then(prepData);
-}
-
-function prepData(data) {
-    console.log(data);
-
-    return _.map(data, d => d.close);
+    });
 }
 
