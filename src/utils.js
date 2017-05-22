@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import moment from 'moment';
 
-const priceKeyMap = ['open', 'close', 'high', 'low'];
+const priceKeyMap = ['open', 'high', 'low', 'close'];
 
 export const findHigh = (data) => {
     var currentHigh = 0;

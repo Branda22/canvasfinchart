@@ -26,7 +26,7 @@ class Line {
 
         this.ctx.beginPath();
         for(let x = verticalGap, i = 0; i < length; x+=verticalGap, i++) {
-            var y = containerHeight - (containerHeight * data[i][1])
+            var y = containerHeight - (containerHeight * data[i][3])
             this.ctx.lineTo(x, y);
             this.ctx.stroke();
         }

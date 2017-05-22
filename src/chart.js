@@ -4,6 +4,7 @@ import { findHigh, findLow, convertDataToY, extractDate, groupDates } from './ut
 import config from './config';
 
 import Line from './line';
+import Candles from './candle';
 
 const { defaultOptions, constants } = config;
 
@@ -40,7 +41,7 @@ class Chart {
         window.onresize = (e) => {
             this.elementPosition = element.getBoundingClientRect();
             this.renderContainer();
-        }
+        };
 
         this.canvas.addEventListener('mousewheel', this.onMouseWheel.bind(this));
         this.canvas.addEventListener('mousemove', this.onMouseMove.bind(this));
@@ -166,7 +167,7 @@ class Chart {
         this.renderGrid();
 
         if(this.options.chartType === this.constants.CANDLE) {
-            this.candleChart = new Candle(this.ctx, this.data, this.options, this.elementPosition);
+            this.candleChart = new Candles(this.ctx, this.data, this.options, this.elementPosition);
             this.candleChart.plotCandles();
         } else {
             this.lineChart = new Line(this.ctx, this.data, this.options, this.elementPosition);  

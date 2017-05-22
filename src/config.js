@@ -1,6 +1,6 @@
 export default {
     defaultOptions: {
-        chartType: 'LINE'
+        chartType: 'CANDLE'
     },
     constants: {
         PRICE_OFFSET: 50,
