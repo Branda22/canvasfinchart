@@ -1,12 +1,12 @@
 {
-  "name": "finchart",
+  "name": "canvas",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Christian Brandalise",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.1",
