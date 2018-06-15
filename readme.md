@@ -2,4 +2,4 @@
 
 ## WIP
 
-![alt text](https://github.com/branda22/canvasfinchart/img/chart.png "Line Chart")
+![alt text](https://github.com/Branda22/canvasfinchart/raw/master/img/chart.png "Line Chart")
