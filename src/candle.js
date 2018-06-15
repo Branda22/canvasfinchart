@@ -45,18 +45,18 @@ class Candles {
       this.ctx.lineTo(x, low);
       this.ctx.stroke();
 
-      this.ctx.fillStyle = 'red';
-      //render body
-      let height;
-      let start;
-      if(close > open) {
-        height = close - open;
-        start = close;
-      } else {
-        height = open - close;
-        start = open;
-      }
-      this.ctx.fillRect(x-5, start, 10, height);
+      // this.ctx.fillStyle = 'red';
+      // //render body
+      // let height;
+      // let start;
+      // if(close > open) {
+      //   height = close - open;
+      //   start = close;
+      // } else {
+      //   height = open - close;
+      //   start = open;
+      // }
+      // this.ctx.fillRect(x-5, start, 10, height);
     }
 
     plotCandles() {
